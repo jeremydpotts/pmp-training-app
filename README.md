@@ -19,6 +19,10 @@ A comprehensive, modern web application for PMP (Project Management Professional
 - **Framer Motion** - Production-ready motion library for React
 - **Lucide React** - Beautiful icon library
 
+## Repository
+
+🔗 **GitHub Repository**: [https://github.com/jeremydpotts/pmp-training-app](https://github.com/jeremydpotts/pmp-training-app)
+
 ## Getting Started
 
 ### Prerequisites
@@ -29,7 +33,7 @@ A comprehensive, modern web application for PMP (Project Management Professional
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/jeremydpotts/pmp-training-app.git
 cd pmp-training-app
 ```
 
