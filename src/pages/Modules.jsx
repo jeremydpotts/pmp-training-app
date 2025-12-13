@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { ArrowLeft, CheckCircle2, Circle, FileText } from 'lucide-react';
 import { modules } from '../data/modules';
+import PDFViewer from '../components/PDFViewer';
 
 function Modules() {
   const [selectedModule, setSelectedModule] = useState(null);
@@ -65,11 +66,7 @@ function Modules() {
             </div>
           </div>
           <div className="h-[calc(100vh-300px)] min-h-[600px]">
-            <iframe
-              src={module.pdf}
-              title={module.title}
-              className="w-full h-full border-0"
-            />
+            <PDFViewer pdfUrl={module.pdf} title={module.title} />
           </div>
         </motion.div>
       </div>

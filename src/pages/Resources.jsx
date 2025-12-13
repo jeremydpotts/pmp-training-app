@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { ArrowLeft, FileText, BookOpen, FileQuestion, Briefcase } from 'lucide-react';
 import { resources } from '../data/modules';
+import PDFViewer from '../components/PDFViewer';
 
 function Resources() {
   const [selectedResource, setSelectedResource] = useState(null);
@@ -29,7 +30,12 @@ function Resources() {
   };
 
   if (resource) {
-    const Icon = getIcon(resource.type);
+    const iconColor = getColor(resource.type);
+    const renderIcon = () => {
+      const Icon = getIcon(resource.type);
+      return <Icon className="h-8 w-8" />;
+    };
+    
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
@@ -37,7 +43,7 @@ function Resources() {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
         >
-          <div className={`bg-gradient-to-r ${getColor(resource.type)} p-6 text-white`}>
+          <div className={`bg-gradient-to-r ${iconColor} p-6 text-white`}>
             <button
               onClick={() => setSelectedResource(null)}
               className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors backdrop-blur-sm mb-4"
@@ -46,7 +52,7 @@ function Resources() {
               <span className="font-semibold">Back to Resources</span>
             </button>
             <div className="flex items-center space-x-3">
-              <Icon className="h-8 w-8" />
+              {renderIcon()}
               <div>
                 <h2 className="text-3xl font-bold">{resource.title}</h2>
                 <span className="inline-block mt-2 bg-white/20 px-3 py-1 rounded-full text-sm font-semibold">
@@ -58,11 +64,7 @@ function Resources() {
             </div>
           </div>
           <div className="h-[calc(100vh-300px)] min-h-[600px]">
-            <iframe
-              src={resource.pdf}
-              title={resource.title}
-              className="w-full h-full border-0"
-            />
+            <PDFViewer pdfUrl={resource.pdf} title={resource.title} />
           </div>
         </motion.div>
       </div>

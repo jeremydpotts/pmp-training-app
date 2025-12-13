@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { BookOpen, FileText, PenTool, BookMarked, CheckCircle2 } from 'lucide-react';
-import { modules, resources } from '../data/modules';
+import { modules } from '../data/modules';
 
 function Home({ onNavigate }) {
   const completedModules = JSON.parse(localStorage.getItem('completedModules') || '[]');
@@ -89,7 +89,7 @@ function Home({ onNavigate }) {
             { id: 'resources', icon: FileText, title: 'Study Resources', desc: 'PMBOK Guide, Agile Practice Guide, and case studies', color: 'from-purple-500 to-pink-500' },
             { id: 'quiz', icon: PenTool, title: 'Practice Questions', desc: 'Test your knowledge with mastery builder questions', color: 'from-green-500 to-emerald-500' },
             { id: 'glossary', icon: BookMarked, title: 'Glossary', desc: 'Quick reference for PMP terminology', color: 'from-orange-500 to-red-500' }
-          ].map((item, index) => {
+          ].map((item) => {
             const Icon = item.icon;
             return (
               <motion.div
@@ -124,7 +124,7 @@ function Home({ onNavigate }) {
         >
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Training Modules Overview</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {modules.map((module, index) => (
+            {modules.map((module) => (
               <motion.div
                 key={module.id}
                 variants={itemVariants}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { PenTool, FileText, Target, TrendingUp, Award } from 'lucide-react';
+import PDFViewer from '../components/PDFViewer';
 
 function Quiz() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -85,11 +86,7 @@ function Quiz() {
             className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
           >
             <div className="h-[calc(100vh-300px)] min-h-[600px]">
-              <iframe
-                src="/materials/Mastery Builder Questions_v3_Jan 2023.pdf"
-                title="PMP Practice Questions"
-                className="w-full h-full border-0"
-              />
+              <PDFViewer pdfUrl="/materials/Mastery Builder Questions_v3_Jan 2023.pdf" title="PMP Practice Questions" />
             </div>
           </motion.div>
         )}

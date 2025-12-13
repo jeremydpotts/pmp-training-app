@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { BookMarked, Search, FileText, CheckCircle2, Lightbulb } from 'lucide-react';
+import PDFViewer from '../components/PDFViewer';
 
 function Glossary() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,11 +59,7 @@ function Glossary() {
             className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100"
           >
             <div className="h-[calc(100vh-300px)] min-h-[600px]">
-              <iframe
-                src="/materials/Glossary - PMP .pdf"
-                title="PMP Glossary"
-                className="w-full h-full border-0"
-              />
+              <PDFViewer pdfUrl="/materials/Glossary - PMP .pdf" title="PMP Glossary" />
             </div>
           </motion.div>
         ) : (

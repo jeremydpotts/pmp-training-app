@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Home, BookOpen, FileText, BookMarked, PenTool, Menu, X } from 'lucide-react';
 
 function Navigation({ currentPage, onNavigate }) {

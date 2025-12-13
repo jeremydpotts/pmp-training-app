@@ -138,6 +138,49 @@ colors: {
 
 This project is for educational purposes.
 
+## CI/CD
+
+This project includes automated CI/CD pipelines using GitHub Actions:
+
+### Continuous Integration (CI)
+
+The CI workflow (`.github/workflows/ci.yml`) automatically runs on:
+- Push to `main` or `develop` branches
+- Pull requests targeting `main` or `develop`
+
+**CI Pipeline Steps:**
+- ✅ Checks out code
+- ✅ Sets up Node.js (tests on versions 18.x and 20.x)
+- ✅ Installs dependencies with `npm ci`
+- ✅ Runs ESLint to check code quality
+- ✅ Builds the application
+- ✅ Uploads build artifacts
+
+### Continuous Deployment (CD)
+
+The deployment workflow (`.github/workflows/deploy.yml`) automatically deploys to GitHub Pages when:
+- Code is pushed to the `main` branch
+- Manually triggered via workflow_dispatch
+
+**Deployment Steps:**
+- ✅ Builds the production-ready application
+- ✅ Deploys to GitHub Pages
+- ✅ Accessible at: `https://jeremydpotts.github.io/pmp-training-app/`
+
+### Enabling GitHub Pages
+
+To enable GitHub Pages deployment:
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Pages** in the left sidebar
+3. Under **Source**, select **GitHub Actions**
+4. The deployment will run automatically on pushes to `main`
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+**Before submitting:**
+- Ensure all CI checks pass
+- Run `npm run lint` locally
+- Test your changes with `npm run build`
